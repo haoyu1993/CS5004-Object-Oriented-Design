@@ -19,7 +19,9 @@ test('renders the appropriate number of movie cards', async () => {
   )
 
   await waitFor(() => screen.getByText(TITLE_OF_MOVIE))
+
   const movieCards = container.getElementsByClassName(MOVIE_CARD_CLASS)
+  // screen.debug();
 
   expect(movieCards.length).toBe(NUMBER_OF_MOVIES)
 })
@@ -50,25 +52,11 @@ const mockMovieByIdResponse = {
   ],
 }
 
-const mockServer = setupServer(
-  rest.get("/movies/:id", (req, res, ctx) => {
-    const { id } = req.params
-    return res(ctx.json(mockMovieByIdResponse))
-  })
-)
 
 beforeAll(() => mockServer.listen())
 afterEach(() => mockServer.resetHandlers())
 afterAll(() => mockServer.close())
 
-test("renders the correct movie", async () => {
-  // Test code remains the same
-});
-// I added the mockMovieByIdResponse variable, and then used it to define the mock response for the server's /movies/:id endpoint.
+test('renders the appropriate number of movie cards', async () => { }
 
-
-
-
-
-
-
+)

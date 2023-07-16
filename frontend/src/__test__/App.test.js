@@ -24,7 +24,6 @@ test('renders the correct movie', async () => {
   await waitFor(() => screen.getByText(TITLE_OF_MOVIE))
   const titleText = screen.getByText(TITLE_OF_MOVIE)
   const reviews = container.getElementsByClassName(REVIEWS_CLASS)
-
   expect(titleText).toBeInTheDocument()
   expect(reviews.length).toBe(NUMBER_OF_REVIEWS)
 })

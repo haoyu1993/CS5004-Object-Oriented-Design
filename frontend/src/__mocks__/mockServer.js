@@ -35,7 +35,18 @@ const mockServer = setupServer(
 
   rest.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/movies`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockMovieResponse))
-  })
-)
+  }),
+
+
+
+  rest.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/movies/id/573a1390f29313caabcd42e8`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(mockMovieByIdResponse)
+    )
+  }))
+
+
+
 
 export default mockServer
